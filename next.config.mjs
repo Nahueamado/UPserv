@@ -9,7 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
+// output: 'export',
+
   // Uncomment and set basePath if deploying to GitHub Pages under a repo subpath
   // basePath: '/your-repo-name',
 }

@@ -1,26 +1,22 @@
 "use client"
-"use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { supabase } from "../../lib/supabaseClient";
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "../../components/ui/button"
+import { Input } from "../../components/ui/input"
+import { Label } from "../../components/ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
 import { FaGoogle, FaFacebook } from "react-icons/fa"
 import { Loader2 } from "lucide-react"
-
-
 
 export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [role, setRole] = useState("client")
+  const [activeTab, setActiveTab] = useState("login")
   const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -110,7 +106,7 @@ export default function AuthPage() {
           <CardTitle className="text-2xl font-bold text-center">UPSERV</CardTitle>
           <CardDescription className="text-center">Inicia sesión o regístrate para continuar</CardDescription>
         </CardHeader>
-        <Tabs defaultValue="login" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="login">Iniciar Sesión</TabsTrigger>
             <TabsTrigger value="register">Registrarse</TabsTrigger>
@@ -227,18 +223,15 @@ export default function AuthPage() {
                   <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
                   <Input id="confirmPassword" type="password" required />
                 </div>
-                <div className="space-y-2">
-                  <Label>Tipo de usuario</Label>
-                  <div className="flex space-x-4">
-                    <label className="flex items-center space-x-2">
-                      <input type="radio" name="role" value="client" defaultChecked />
-                      <span>Cliente</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input type="radio" name="role" value="professional" />
-                      <span>Profesional</span>
-                    </label>
-                  </div>
+                <div className="space-x-4">
+                  <label className="flex items-center space-x-2">
+                    <input type="radio" name="role" value="client" defaultChecked />
+                    <span>Cliente</span>
+                  </label>
+                  <label className="flex items-center space-x-2">
+                    <input type="radio" name="role" value="professional" />
+                    <span>Profesional</span>
+                  </label>
                 </div>
               </CardContent>
               <CardFooter>
