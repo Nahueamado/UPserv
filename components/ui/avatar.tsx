@@ -1,50 +1,34 @@
-"use client"
+import React from 'react';
 
-import * as React from "react"
-import * as AvatarPrimitive from "@radix-ui/react-avatar"
+interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  className?: string;
+}
 
-import { cn } from "@/lib/utils"
+export const Avatar: React.FC<AvatarProps> = ({ children, className = '', ...props }) => {
+  return (
+    <div className={`inline-flex items-center justify-center overflow-hidden rounded-full ${className}`} {...props}>
+      {children}
+    </div>
+  );
+};
 
-const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
-      className
-    )}
-    {...props}
-  />
-))
-Avatar.displayName = AvatarPrimitive.Root.displayName
+interface AvatarImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
-const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Image
-    ref={ref}
-    className={cn("aspect-square h-full w-full", className)}
-    {...props}
-  />
-))
-AvatarImage.displayName = AvatarPrimitive.Image.displayName
+export const AvatarImage: React.FC<AvatarImageProps> = (props) => {
+  return (
+    <img className="h-full w-full rounded-full object-cover" {...props} />
+  );
+};
 
-const AvatarFallback = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Fallback
-    ref={ref}
-    className={cn(
-      "flex h-full w-full items-center justify-center rounded-full bg-muted",
-      className
-    )}
-    {...props}
-  />
-))
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
+interface AvatarFallbackProps extends React.HTMLAttributes<HTMLSpanElement> {
+  children: React.ReactNode;
+}
 
-export { Avatar, AvatarImage, AvatarFallback }
+export const AvatarFallback: React.FC<AvatarFallbackProps> = ({ children, ...props }) => {
+  return (
+    <span className="flex h-full w-full items-center justify-center rounded-full bg-gray-200 text-gray-600" {...props}>
+      {children}
+    </span>
+  );
+};
