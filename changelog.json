@@ -1,0 +1,68 @@
+[
+  {
+    "codigo": 1,
+    "fecha": "2025-05-05T10:00:00Z",
+    "descripcion": "Se corrigió el archivo package.json para eliminar la 'v' en la versión, se ajustaron las versiones de React, React DOM y Next.js a versiones estables, y se corrigió el nombre del paquete a minúsculas para cumplir con el patrón requerido.",
+    "agregado": [],
+    "editado": ["package.json"],
+    "eliminado": []
+  },
+  {
+    "codigo": 2,
+    "fecha": "2025-05-05T11:00:00Z",
+    "descripcion": "Se integró Supabase en el proyecto usando Supabase Cloud. Se creó el cliente Supabase en lib/supabaseClient.ts, un endpoint API en app/api/supabase-example/route.ts para consultar datos, y una página en app/supabase-example/page.tsx para mostrar datos desde Supabase.",
+    "agregado": [
+      "lib/supabaseClient.ts",
+      "app/api/supabase-example/route.ts",
+      "app/supabase-example/page.tsx"
+    ],
+    "editado": [],
+    "eliminado": []
+  },
+  {
+    "codigo": 3,
+    "fecha": "2025-05-05T12:00:00Z",
+    "descripcion": "Se creó la tabla 'shopping_list' en Supabase y se agregó un endpoint API en app/api/supabase-shopping-list/route.ts para consultar la tabla. Se creó la página app/shopping-list/page.tsx para mostrar la lista de compras desde Supabase.",
+    "agregado": [
+      "app/api/supabase-shopping-list/route.ts",
+      "app/shopping-list/page.tsx"
+    ],
+    "editado": [],
+    "eliminado": []
+  },
+  {
+    "codigo": 4,
+    "fecha": "2025-05-05T13:00:00Z",
+    "descripcion": "Se añadieron nuevas funcionalidades y mejoras en la web, incluyendo optimizaciones de rendimiento, corrección de bugs y mejoras en la interfaz de usuario.",
+    "agregado": [
+      "app/new-feature/page.tsx",
+      "components/ui/new-component.tsx"
+    ],
+    "editado": [
+      "app/changelog/page.tsx",
+      "app/api/changelog/route.ts"
+    ],
+    "eliminado": []
+  },
+  {
+    "codigo": 5,
+    "fecha": "2025-05-05T03:35:00Z",
+    "descripcion": "Se creó una página de prueba /prueba-login con formularios para registro e inicio de sesión usando Supabase, y una página /prueba-login/inicio para mostrar el mensaje de inicio de sesión exitoso.",
+    "agregado": [
+    "app/prueba-login/page.tsx",
+    "app/prueba-login/inicio/page.tsx"
+    ],
+    "editado": [],
+    "eliminado": []
+    },
+    {
+    "codigo": 6,
+    "fecha": "2025-05-05T03:50:00Z",
+    "descripcion": "Se mejoró el manejo de errores en la página /prueba-login para mostrar mensajes claros durante el registro e inicio de sesión con Supabase.",
+    "agregado": [],
+    "editado": [
+    "app/prueba-login/page.tsx"
+    ],
+    "eliminado": []
+    }
+]
